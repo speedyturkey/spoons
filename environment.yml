@@ -1,0 +1,6 @@
+name: spoons
+dependencies:
+  - python=3.4
+  - flask
+  - pip:
+    - flask-sqlalchemy
