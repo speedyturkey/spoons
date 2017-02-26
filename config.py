@@ -12,7 +12,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 mysql = {'user': 'root',
         'password': 'qiq7!grCzJ5H',
-        'endpoint': 'flasktest.crczz2ty7t4q.us-west-2.rds.amazonaws.com',
+        'endpoint': 'spoons-prod.crczz2ty7t4q.us-west-2.rds.amazonaws.com',
         'port': 3306,
         'database': 'flaskdb'
         }
