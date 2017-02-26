@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import application
+from application import application
 
 # Elastic Beanstalk initialization
 # application.secret_key = 'cC1YCIWOj9GgWspgNEo2'
