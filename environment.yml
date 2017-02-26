@@ -4,3 +4,5 @@ dependencies:
   - flask
   - pip:
     - flask-sqlalchemy
+    - sqlalchemy-migrate
+    - awsebcli
