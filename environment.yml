@@ -2,6 +2,7 @@ name: spoons
 dependencies:
   - python=3.4
   - flask
+  - pymysql
   - pip:
     - flask-sqlalchemy
     - sqlalchemy-migrate
