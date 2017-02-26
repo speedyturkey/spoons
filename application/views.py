@@ -1,5 +1,6 @@
-from application import application
+from app import app
+from flask import render_template
 
-@application.route('/')
+@app.route('/')
 def index():
-    return 'Welcome to SpoonsOnline!'
+    return render_template('index.html')
