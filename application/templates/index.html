@@ -4,5 +4,35 @@
 
 {% block title %}Home{% endblock %}
 {% block main %}
-<h1> Welcome to SpoonsOnline!</h1>
+<h2>Active Requests</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5">
+      <h3>Spoons</h3>
+    </div>
+    <div class="col-md-1 label label-warning">
+      Pending
+    </div>
+    <div class="col-md-3">
+      Requested by {{first_name}} {{last_name}} on 12/25/2017
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <h3>Forks</h3>
+    </div>
+    <div class="col-md-1 label label-success">
+      Approved
+    </div>
+    <div class="col-md-3">
+      Requested by {{first_name}} {{last_name}} on 12/25/2017
+    </div>
+    <div class="col-md-3">
+      Approved by {{first_name}} {{last_name}} on 12/25/2017
+    </div>
+  </div>
+</div>
 {% endblock %}
