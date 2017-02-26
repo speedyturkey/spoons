@@ -1,9 +1,16 @@
-from application import application
+from application import application, models
 from flask import render_template
+
 
 @application.route('/')
 def index():
-    return render_template('index.html', title='Home', logged_in=1, first_name='Wilward', last_name='McNunes')
+    requests = models.Requests.query.all()
+    return render_template('index.html',
+    title='Home',
+    logged_in=1,
+    first_name='Wilward',
+    last_name='McNunes',
+    requests=requests)
 
 @application.route('/orders')
 def orders():
