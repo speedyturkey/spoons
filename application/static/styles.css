@@ -5,3 +5,28 @@ main {
 footer {
     padding-left: 15px;
 }
+
+.row {
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    margin-bottom: 4px;
+    min-height: 70px;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.row.header {
+    border-width: 0px;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.requestor-note {
+    padding-left: 20px;
+    color: gray;
+}

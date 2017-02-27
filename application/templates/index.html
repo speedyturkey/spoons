@@ -6,49 +6,87 @@
 {% block main %}
 <h2>Active Requests</h2>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-5">
-      <h3>Spoons</h3>
-    </div>
-    <div class="col-md-1 label label-warning">
-      Pending
-    </div>
+  <div class="row vertical-align header">
     <div class="col-md-3">
-      Requested by {{first_name}} {{last_name}} on 12/25/2017
+      Product
     </div>
-    <div class="col-md-3">
+    <div class="col-md-1" style="text-align: center;">
+      Status
+    </div>
+    <div class="col-md-4">
+      Notes
+    </div>
+    <div class="col-md-4">
 
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-5">
-      <h3>Forks</h3>
-    </div>
-    <div class="col-md-1 label label-success">
-      Approved
-    </div>
-    <div class="col-md-3">
-      Requested by {{first_name}} {{last_name}} on 12/25/2017
-    </div>
-    <div class="col-md-3">
-      Approved by {{first_name}} {{last_name}} on 12/25/2017
-    </div>
-  </div>
   {% for request in requests %}
-  <div class="row">
-    <div class="col-md-5">
+  <div class="row vertical-align">
+    <div class="col-md-3">
       <h3>{{request.product.product_name}}</h3>
     </div>
-    <div class="col-md-1 label label-success">
-      Approved
+    {% if request.status is equalto 'approved' %}<div class="col-md-1 label label-success">{% endif %}
+    {% if request.status is equalto 'pending' %}<div class="col-md-1 label label-warning">{% endif %}
+      {{request.status}}
     </div>
-    <div class="col-md-3">
-      Requested by {{first_name}} {{last_name}} on 12/25/2017
+    <div class="col-md-4 requestor-note">
+      {% if request.requestor_note %}{{request.requestor_note}}{% endif %}
     </div>
+    <div class="col-md-4">
+      {% if request.requested_by %}Requested by {{request.requested_by.first_name}} {{request.requested_by.last_name}}{% endif %}
+      {% if request.requested_at %} on {{request.requested_at.strftime('%m/%d/%Y')}}{% endif %}
+      <br />
+      {% if request.reviewed_by %}Approved by {{request.reviewed_by.first_name}} {{request.reviewed_by.last_name}}{% endif %}
+      {% if request.reviewed_at %} on {{request.reviewed_at.strftime('%m/%d/%Y')}}{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="row vertical-align">
+    <div class="form-group">
+      <div class="col-md-8">
+        <input type="text" class="form-control" placeholder="Product Name" />
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-default">Add Product</button>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>Recent Orders</h2>
+<div class="container-fluid">
+  <div class="row vertical-align header">
     <div class="col-md-3">
-      Approved by {{first_name}} {{last_name}} on 12/25/2017
+      Product
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-4">
+      Notes
+    </div>
+    <div class="col-md-4">
+
+    </div>
+  </div>
+  {% for order in orders %}
+  <div class="row vertical-align">
+    <div class="col-md-3">
+      <h3>{{order.product.product_name}}</h3>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-4 requestor-note">
+      {% if order.requestor_note %}{{order.requestor_note}}{% endif %}
+    </div>
+    <div class="col-md-4">
+      {% if order.requested_by %}Requested by {{order.requested_by.first_name}} {{order.requested_by.last_name}}{% endif %}
+      {% if order.requested_at %} on {{order.requested_at.strftime('%m/%d/%Y')}}{% endif %}
+      <br />
+      {% if order.reviewed_by %}Ordered by {{order.reviewed_by.first_name}} {{order.reviewed_by.last_name}}{% endif %}
+      {% if order.reviewed_at %} on {{order.reviewed_at.strftime('%m/%d/%Y')}}{% endif %}
     </div>
   </div>
   {% endfor %}
 </div>
+
 {% endblock %}

@@ -1,16 +1,19 @@
 from application import application, models
 from flask import render_template
+from sqlalchemy import or_
 
 
 @application.route('/')
 def index():
-    requests = models.Requests.query.all()
+    requests = models.Requests.query.filter(models.Requests.status != 'Denied', models.Requests.ordered_at == None).all()
+    orders = models.Requests.query.filter(models.Requests.ordered_at != None).order_by(models.Requests.ordered_at.desc()).limit(10).all()
     return render_template('index.html',
     title='Home',
     logged_in=1,
     first_name='Wilward',
     last_name='McNunes',
-    requests=requests)
+    requests=requests,
+    orders=orders)
 
 @application.route('/orders')
 def orders():
