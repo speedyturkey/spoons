@@ -8,3 +8,4 @@ sqlalchemy-migrate
 pymysql
 Werkzeug==0.11.15
 awsebcli
+flask-wtf

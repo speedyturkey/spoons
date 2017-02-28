@@ -7,3 +7,4 @@ dependencies:
     - flask-sqlalchemy
     - sqlalchemy-migrate
     - awsebcli
+    - flask-wtf

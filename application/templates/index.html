@@ -44,10 +44,13 @@
   <div class="row vertical-align">
     <div class="form-group">
       <div class="col-md-8">
-        <input type="text" class="form-control" placeholder="Product Name" />
+        {{form.product_name}}
       </div>
       <div class="col-md-2">
-        <button type="submit" class="btn btn-default">Add Product</button>
+        {{form.submit}}
+        {% for message in form.product_name.errors %}
+         <div>{{ message }}</div>
+        {% endfor %}
       </div>
     </div>
   </div>
